@@ -20,7 +20,7 @@ export function runInTerminal(text: string, filename: string) {
     terminal.sendText(cdArgs.join(' '), true);
 
     const vitestArgs = buildVitestArgs(caseNameStr);
-    const npxArgs = ['npx', ...vitestArgs];
+    const npxArgs = ['pnpm', ...vitestArgs];
     terminal.sendText(npxArgs.join(' '), true);
     terminal.show();
 }
@@ -34,7 +34,7 @@ function buildDebugConfig(
         request: 'launch',
         runtimeArgs: buildVitestArgs(text),
         cwd,
-        runtimeExecutable: 'npx',
+        runtimeExecutable: 'pnpm',
         skipFiles: ['<node_internals>/**'],
         type: 'pwa-node',
         console: 'integratedTerminal',
