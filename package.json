@@ -1,7 +1,7 @@
 {
   "name": "vscode-vitest-runner-for-pnpm",
-  "displayName": "Vitest Runner for pnpm (forked)",
-  "version": "1.0.2",
+  "displayName": "Vitest Runner & Debug using pnpm (forked version)",
+  "version": "1.0.3",
   "main": "dist/index.js",
   "icon": "logo.png",
   "license": "MIT",
