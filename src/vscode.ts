@@ -3,7 +3,7 @@ import { debugInTermial, runInTerminal } from './run';
 
 export class RunVitestCommand implements vscode.Command {
     static ID = 'vitest.runTest';
-    title = 'Run(Vitest)';
+    title = 'Run(vitest)';
     command = RunVitestCommand.ID;
     arguments?: [string, string];
 
@@ -14,7 +14,7 @@ export class RunVitestCommand implements vscode.Command {
 
 export class DebugVitestCommand implements vscode.Command {
     static ID = 'vitest.debugTest';
-    title = 'Debug(Vitest)';
+    title = 'Debug(vitest)';
     command = DebugVitestCommand.ID;
     arguments?: [string, string];
 
