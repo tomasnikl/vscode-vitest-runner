@@ -29,7 +29,7 @@ function buildDebugConfig(
     return {
         name: 'Debug vitest case',
         request: 'launch',
-        runtimeArgs: buildVitestArgs(filename, text),
+        runtimeArgs: buildVitestArgs(text, filename),
         cwd,
         runtimeExecutable: 'pnpm',
         skipFiles: ['<node_internals>/**'],
