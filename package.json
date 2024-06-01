@@ -1,7 +1,7 @@
 {
   "name": "vscode-vitest-runner-for-pnpm",
   "displayName": "Vitest Runner for pnpm (forked)",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "dist/index.js",
   "icon": "logo.png",
   "license": "MIT",
@@ -20,7 +20,7 @@
     "codelens"
   ],
   "repository": "git@github.com:kwai-explore/vscode-vitest-runner.git",
-  "author": "kingwl <kingwenlu@gmail.com>",
+  "author": "tomasnikl <tomasnikl.cz@gmail.com>",
   "activationEvents": [
     "onLanguage:typescript",
     "onLanguage:javascript",
