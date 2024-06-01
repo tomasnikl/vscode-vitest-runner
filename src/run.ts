@@ -1,8 +1,8 @@
 import * as vscode from 'vscode';
 import * as path from 'path';
 
-function buildVitestArgs(text: string) {
-    return ['vitest', 'run', '-t', text];
+function buildVitestArgs(text: string, pathToFile: string) {
+    return ['vitest', pathToFile, '-t', text];
 }
 
 function buildCdArgs(path: string) {
@@ -10,16 +10,12 @@ function buildCdArgs(path: string) {
 }
 
 export function runInTerminal(text: string, filename: string) {
-    const casePath = path.dirname(filename);
     const terminal = vscode.window.createTerminal(`vitest - ${text}`);
 
-    const casePathStr = JSON.stringify(casePath);
+    const casePathStr = JSON.stringify(filename);
     const caseNameStr = JSON.stringify(text);
 
-    const cdArgs = buildCdArgs(casePathStr);
-    terminal.sendText(cdArgs.join(' '), true);
-
-    const vitestArgs = buildVitestArgs(caseNameStr);
+    const vitestArgs = buildVitestArgs(caseNameStr, casePathStr);
     const npxArgs = ['pnpm', ...vitestArgs];
     terminal.sendText(npxArgs.join(' '), true);
     terminal.show();
@@ -27,12 +23,13 @@ export function runInTerminal(text: string, filename: string) {
 
 function buildDebugConfig(
     cwd: string,
-    text: string
+    text: string,
+    filename: string
 ): vscode.DebugConfiguration {
     return {
         name: 'Debug vitest case',
         request: 'launch',
-        runtimeArgs: buildVitestArgs(text),
+        runtimeArgs: buildVitestArgs(filename, text),
         cwd,
         runtimeExecutable: 'pnpm',
         skipFiles: ['<node_internals>/**'],
@@ -44,6 +41,6 @@ function buildDebugConfig(
 
 export function debugInTermial(text: string, filename: string) {
     const casePath = path.dirname(filename);
-    const config = buildDebugConfig(casePath, text);
+    const config = buildDebugConfig(casePath, text, filename);
     vscode.debug.startDebugging(undefined, config);
 }
