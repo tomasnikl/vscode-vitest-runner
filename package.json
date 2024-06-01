@@ -1,6 +1,6 @@
 {
-  "name": "vscode-vitest-runner-pnpm",
-  "displayName": "Vitest Runner (pnpm)",
+  "name": "vscode-vitest-runner-for-pnpm",
+  "displayName": "Vitest Runner for pnpm (forked)",
   "version": "1.0.0",
   "main": "dist/index.js",
   "icon": "logo.png",
